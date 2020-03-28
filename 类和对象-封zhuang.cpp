@@ -1,6 +1,26 @@
 #include <iostream>
 using namespace std;
 
+class Person
+{
+public:
+   Person()//无参构造函数
+   {
+       cout<<"Person 构造函数的调用"<<endl;
+   }
+
+   Person(int a)  //有参构造函数
+   {
+       m_age=a;
+       cout<<"有参构造函数"<<endl;
+   }
+   ~Person()//析构函数
+    {
+        cout<<"Person 析构函数的调用"<<endl;
+    }
+
+    int m_age;
+};
 //设计一个圆类，求圆的周长
 //圆求周长的公式：2*PI*半径     ---->>对象为圆，其中我们暂时需要的属性是半径
 const double PI=3.14;
@@ -26,11 +46,14 @@ public:           //公共权限(以后细说)
         m_r=a;
     }
 };
+
 void calculate();
+void test1();
 
 int main()
 {
-    calculate();
+    //calculate();
+    test1();
     return 0;
 }
 
@@ -44,3 +67,11 @@ void calculate()
     cout<<"圆的周长为多少:"<<c1.calculateZC()<<endl;
 }
 
+void test1()
+{
+    Person p(10);  //有参构造函数
+    Person p2(p);  //拷贝构造函数
+    cout<<"p.m_age="<<p.m_age<<endl;
+    cout<<"p2.m_age="<<p2.m_age<<endl;
+    cout<<"aaaa"<<endl;
+}
